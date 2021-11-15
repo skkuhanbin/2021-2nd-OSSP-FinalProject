@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
+    <title>매일매일 하나씩</title>
+    <style>
+        .container {
+            width: 45%;
+            margin-left: 1%;
+        }
+    </style>
+</head>
+
+<script>
+    function clac() // 유저의 입력값이 정답인지 봐주는 함수
+    {
+        let total = 0; // 초기화
+        let totaltime = 0;
+        let fail = 0;
+        let questionArray1 = document.getElementsByClassName("question1"); // 여러개니깐 배열로 짜준다.
+        let questionArray2 = document.getElementsByClassName("question2");
+        let questionArray3 = document.getElementsByClassName("question3");
+        let questionArray4 = document.getElementsByClassName("question4");
+        let answerArray = document.getElementsByClassName("answer");
+        let answerArray2 = document.getElementsByClassName("answer2");
+        let pro1 = document.getElementsByClassName("rounded");
+        let pro2 = document.getElementsByClassName("rounded2");
+
+        for (i = 0; i < questionArray1.length; i++) {
+            let question1 = questionArray1[i].innerHTML;
+            let question2 = questionArray2[i].innerHTML;
+            let result1 = eval(question1);
+            let result2 = eval(question2); // eval은 계산함수
+            let useranswer = answerArray[i].value;
+
+            if ((useranswer == ">" && result1 - result2 > 0) || (useranswer == "<" && result1 - result2 < 0)) // 정답
+            {
+                total += 1;
+                pro1[i].style.backgroundColor = "skyblue";
+            }
+            else // 오답
+            {
+                total += 0;
+                fail++;
+                pro1[i].style.backgroundColor = "#db0d36";
+            }
+        }
+
+        for (i = 0; i < questionArray3.length; i++) {
+            let question3 = questionArray3[i].innerHTML;
+            let question4 = questionArray4[i].innerHTML;
+
+            let result3 = eval(question3.split("\n-----\n")[0] / question3.split("\n-----\n")[1]);
+            let result4 = eval(question4.split("\n-----\n")[0] / question4.split("\n-----\n")[1]); // eval은 계산함수
+            let useranswer2 = answerArray2[i].value;
+
+            if ((useranswer2 == ">" && result3 - result4 > 0) || (useranswer2 == "<" && result3 - result4 < 0)) // 정답
+            {
+                total += 1;
+                pro2[i].style.backgroundColor = "skyblue";
+            }
+            else // 오답
+            {
+                total += 0;
+                fail++;
+                pro2[i].style.backgroundColor = "#db0d36";
+            }
+        }
+        totaltime = fail * 15 + TIME;
+        stopButton();
+        let min = Math.floor(totaltime / 60);
+        let sec = totaltime % 60;
+        let realmin = Math.floor(TIME / 60);
+        let realsec = TIME % 60;
+
+        if(totaltime <= 120){
+            document.getElementById("rate").innerHTML = "Superior!";
+        }
+        else if(totaltime > 120 && totaltime <= 150){
+            document.getElementById("rate").innerHTML = "Excellent!";
+        }
+        else if(totaltime > 150 && totaltime <= 180){
+            document.getElementById("rate").innerHTML = "Good!";
+        }
+        else if(totaltime > 180 && totaltime <= 210){
+            document.getElementById("rate").innerHTML = "Average!";
+        }
+        else if(totaltime > 210 && totaltime <= 240){
+            document.getElementById("rate").innerHTML = "Acceptable!";
+        }
+        else{
+            document.getElementById("rate").innerHTML = "Need Work!";
+        }
+        document.getElementById("time").innerHTML = "걸린 시간: " + min + "분 " + sec + "초";
+        document.getElementById("explain").innerHTML = "(실제 시간 " + realmin + "분 " + realsec + "초" + " +" + "틀린 문제 " + fail + "개 * 15초)";
+    }
+
+    function makeExp() // 랜덤으로 문제가 나오게 하는 함수
+    {
+        let questionArray1 = document.getElementsByClassName("question1");
+        let answerArray = document.getElementsByClassName("answer");
+        let answerArray2 = document.getElementsByClassName("answer2");
+        let pro1 = document.getElementsByClassName("rounded");
+        let pro2 = document.getElementsByClassName("rounded2");
+
+        for (i = 0; i < questionArray1.length; i++) {
+            let num1 = Math.floor(Math.random() * 10000) + 1000;
+            let num2 = Math.round(Math.random() * 1000) / 10 + 10;
+            let operator = "*"; // 변수 operator 초기화
+
+            questionArray1[i].innerHTML = num1 + operator + num2;
+            questionArray1[i].style.textDecoration = "none";
+        }
+
+        let questionArray2 = document.getElementsByClassName("question2");
+        for (i = 0; i < questionArray1.length; i++) {
+            let num3 = Math.floor(Math.random() * 10000) + 1000;
+            let num4 = Math.round(Math.random() * 1000) / 10 + 10;
+            let operator = "*"; // 변수 operator 초기화
+
+            questionArray2[i].innerHTML = num3 + operator + num4;
+            questionArray2[i].style.textDecoration = "none";
+            pro1[i].style.backgroundColor = "lightgray";
+        }
+
+        let questionArray3 = document.getElementsByClassName("question3");
+        for (i = 0; i < questionArray3.length; i++) {
+            let num5 = Math.floor(Math.random() * 100) + 10;
+            let num6 = Math.floor(Math.random() * 1000) + 1;
+            let operator = "/"; // 변수 operator 초기화
+
+            questionArray3[i].innerHTML = num5 + "\n" + "-----" + "\n" + num6;
+            questionArray3[i].style.textDecoration = "none";
+        }
+        let questionArray4 = document.getElementsByClassName("question4");
+        for (i = 0; i < questionArray4.length; i++) {
+            let num7 = Math.floor(Math.random() * 100) + 10;
+            let num8 = Math.floor(Math.random() * 1000) + 1;
+            let operator = "/"; // 변수 operator 초기화
+
+            questionArray4[i].innerHTML = num7 + "\n" + "-----" + "\n" + num8;
+            questionArray4[i].style.textDecoration = "none";
+            pro2[i].style.backgroundColor = "lightgray";
+        }
+    }
+
+
+</script>
+
+<body onload="makeExp()">
+    <div id="wrapper2">
+        <div class="container">
+            <div class="timer-box">
+                <div class="timer js-timer">00:00</div>
+                <div class="timer-form__Btn">
+                    <div class="timerBtn js-timer__startBtn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="timerBtn js-timer__stopBtn">
+                        <i class="fas fa-pause"></i>
+                    </div>
+                    <div class="timerBtn js-timer__resetBtn">
+                        <i class="fas fa-stop"></i>
+                    </div>
+                </div>
+            </div>
+            <script src="timer.js"></script>
+            <input type="button" onclick="clac()" value="채점하기"></input>
+            <input type="button" onclick="makeExp()" value="문제 재생성"></input>
+        </div>
+        <br>
+        <div class="container">
+            START를 누르면 시간 측정이 시작됩니다.
+        </div>
+        <br>
+        <div class="left">
+
+            <div class="rounded">1)</div><br>
+            <table>
+                <tr>
+                    <td class="question1"></td>
+                    <td><input class="answer" type="text" size="1"></td>
+                    <td class="question2"></td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+
+            <div class="rounded">2)</div><br>
+            <table>
+                <tr>
+                    <td class="question1"></td>
+                    <td><input class="answer" type="text" size="1"></td>
+                    <td class="question2"></td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+
+            <div class="rounded">3)</div><br>
+            <table>
+                <tr>
+                    <td class="question1"></td>
+                    <td><input class="answer" type="text" size="1"></td>
+                    <td class="question2"></td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+
+            <div class="rounded">4)</div><br>
+            <table>
+                <tr>
+                    <td class="question1"></td>
+                    <td><input class="answer" type="text" size="1"></td>
+                    <td class="question2"></td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+
+            <div class="rounded">5)</div><br>
+            <table>
+                <tr>
+                    <td class="question1"></td>
+                    <td><input class="answer" type="text" size="1"></td>
+                    <td class="question2"></td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+
+
+            <div class="rounded">6)</div><br>
+            <table>
+                <tr>
+                    <td class="question1"></td>
+                    <td><input class="answer" type="text" size="1"></td>
+                    <td class="question2"></td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+
+
+            <div class="rounded">7)</div><br>
+            <table>
+                <tr>
+                    <td class="question1"></td>
+                    <td><input class="answer" type="text" size="1"></td>
+                    <td class="question2"></td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+
+
+            <div class="rounded">8)</div><br>
+            <table>
+                <tr>
+                    <td class="question1"></td>
+                    <td><input class="answer" type="text" size="1"></td>
+                    <td class="question2"></td>
+                </tr>
+            </table>
+            <br><br><br><br><br>
+        </div>
+
+
+        <div class="right">
+            <div class="rounded2">9)</div><br>
+            <table>
+                <tr>
+                    <td class="question3"></td>
+                    <td><input class="answer2" type="text" size="1"></td>
+                    <td class="question4"></td>
+                </tr>
+            </table>
+            <br>
+
+            <div class="rounded2">10)</div><br>
+            <table>
+                <tr>
+                    <td class="question3"></td>
+                    <td><input class="answer2" type="text" size="1"></td>
+                    <td class="question4"></td>
+                </tr>
+            </table>
+            <br>
+
+            <div class="rounded2">11)</div><br>
+            <table>
+                <tr>
+                    <td class="question3"></td>
+                    <td><input class="answer2" type="text" size="1"></td>
+                    <td class="question4"></td>
+                </tr>
+            </table>
+            <br>
+
+            <div class="rounded2">12)</div><br>
+            <table>
+                <tr>
+                    <td class="question3"></td>
+                    <td><input class="answer2" type="text" size="1"></td>
+                    <td class="question4"></td>
+                </tr>
+            </table>
+            <br>
+
+            <div class="rounded2">13)</div><br>
+            <table>
+                <tr>
+                    <td class="question3"></td>
+                    <td><input class="answer2" type="text" size="1"></td>
+                    <td class="question4"></td>
+                </tr>
+            </table>
+            <br>
+
+            <div class="rounded2">14)</div><br>
+            <table>
+                <tr>
+                    <td class="question3"></td>
+                    <td><input class="answer2" type="text" size="1"></td>
+                    <td class="question4"></td>
+                </tr>
+            </table>
+            <br>
+
+            <div class="rounded2">15)</div><br>
+            <table>
+                <tr>
+                    <td class="question3"></td>
+                    <td><input class="answer2" type="text" size="1"></td>
+                    <td class="question4"></td>
+                </tr>
+            </table>
+            <br>
+
+            <div class="rounded2">16)</div><br>
+            <table>
+                <tr>
+                    <td class="question3"></td>
+                    <td><input class="answer2" type="text" size="1"></td>
+                    <td class="question4"></td>
+                </tr>
+            </table>
+            <br>
+
+            <div class="rounded2">17)</div><br>
+            <table>
+                <tr>
+                    <td class="question3"></td>
+                    <td><input class="answer2" type="text" size="1"></td>
+                    <td class="question4"></td>
+                </tr>
+            </table>
+            <br>
+
+            <div class="rounded2">18)</div><br>
+            <table>
+                <tr>
+                    <td class="question3"></td>
+                    <td><input class="answer2" type="text" size="1"></td>
+                    <td class="question4"></td>
+                </tr>
+            </table>
+            <br>
+        </div>
+        <br>
+        <div class="container">
+            <h1>
+                <span id="rate"></span>
+            </h1>
+            <h3>
+                <span id="time"></span>
+            </h3>
+            <h6>
+                <span id="explain"></span>
+            </h6>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+
+    </div>
+</body>
+
+</html>
