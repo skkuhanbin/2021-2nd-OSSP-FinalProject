@@ -178,6 +178,7 @@
             <script src="timer.js"></script>
             <input type="button" onclick="clac()" value="채점하기"></input>
             <input type="button" onclick="makeExp()" value="문제 재생성"></input>
+            <input type="button" onclick="savePDF()" value="PDF로 저장"></input>
         </div>
         <br>
         <div class="container">
@@ -386,8 +387,44 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br><br><br><br><br><br><br><br><br><br><br>
         </div>
-
+        <a href="index.html" class="btn btn-primary">처음으로</a>
     </div>
+
+    <script src="html2canvas.js"></script>
+    <script src="jspdf.min.js"></script>
+    <script>
+        function savePDF(){
+            html2canvas(document.getElementById("wrapper2")).then(function(canvas) {
+                // 캔버스를 이미지로 변환
+                var imgData = canvas.toDataURL('image/png');
+
+                var imgWidth = 190; // 이미지 가로 길이(mm) / A4 기준 210mm
+                var pageHeight = imgWidth * 1.414;  // 출력 페이지 세로 길이 계산 A4 기준
+                var imgHeight = canvas.height * imgWidth / canvas.width;
+                var heightLeft = imgHeight;
+                var margin = 10; // 출력 페이지 여백설정
+                var doc = new jsPDF('p', 'mm');
+                var position = 0;
+
+                // 첫 페이지 출력
+                doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+
+                // 한 페이지 이상일 경우 루프 돌면서 출력
+                while (heightLeft >= 20) {			// 35
+                    position = heightLeft - imgHeight;
+                    position = position - 20 ;		// -25
+
+                    doc.addPage();
+                    doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+
+                // 파일 저장
+                doc.save('NCStest.pdf');
+            });
+        }
+    </script>
 </body>
 
 </html>
