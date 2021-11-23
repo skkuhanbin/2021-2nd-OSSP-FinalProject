@@ -84,23 +84,24 @@
         let realmin = Math.floor(TIME / 60);
         let realsec = TIME % 60;
 
-        if(totaltime <= 120){
-            document.getElementById("rate").innerHTML = "Superior!";
-        }
-        else if(totaltime > 120 && totaltime <= 150){
-            document.getElementById("rate").innerHTML = "Excellent!";
-        }
-        else if(totaltime > 150 && totaltime <= 180){
-            document.getElementById("rate").innerHTML = "Good!";
-        }
-        else if(totaltime > 180 && totaltime <= 210){
-            document.getElementById("rate").innerHTML = "Average!";
-        }
-        else if(totaltime > 210 && totaltime <= 240){
-            document.getElementById("rate").innerHTML = "Acceptable!";
-        }
-        else{
-            document.getElementById("rate").innerHTML = "Need Work!";
+        switch (true) {
+            case (totaltime <= 120):
+                document.getElementById("rate").innerHTML = "Superior!";
+                break;
+            case (totaltime > 120 && totaltime <= 150):
+                document.getElementById("rate").innerHTML = "Excellent!";
+                break;
+            case (totaltime > 150 && totaltime <= 180):
+                document.getElementById("rate").innerHTML = "Good!";
+                break;
+            case (totaltime > 180 && totaltime <= 210):
+                document.getElementById("rate").innerHTML = "Average";
+                break;
+            case (totaltime > 210 && totaltime <= 240):
+                document.getElementById("rate").innerHTML = "Acceptable!";
+                break;
+            default:
+                document.getElementById("rate").innerHTML = "Need Work!";
         }
         document.getElementById("time").innerHTML = "걸린 시간: " + min + "분 " + sec + "초";
         document.getElementById("explain").innerHTML = "(실제 시간 " + realmin + "분 " + realsec + "초" + " +" + "틀린 문제 " + fail + "개 * 15초)";
@@ -143,6 +144,7 @@
             questionArray3[i].innerHTML = num5 + "\n" + "-----" + "\n" + num6;
             questionArray3[i].style.textDecoration = "none";
         }
+        
         let questionArray4 = document.getElementsByClassName("question4");
         for (i = 0; i < questionArray4.length; i++) {
             let num7 = Math.floor(Math.random() * 100) + 10;
@@ -153,6 +155,9 @@
             questionArray4[i].style.textDecoration = "none";
             pro2[i].style.backgroundColor = "lightgray";
         }
+        document.getElementById("rate").innerHTML = " "
+        document.getElementById("time").innerHTML = " ";
+        document.getElementById("explain").innerHTML = " ";
     }
 
 
@@ -393,8 +398,8 @@
     <script src="html2canvas.js"></script>
     <script src="jspdf.min.js"></script>
     <script>
-        function savePDF(){
-            html2canvas(document.getElementById("wrapper2")).then(function(canvas) {
+        function savePDF() {
+            html2canvas(document.getElementById("wrapper2")).then(function (canvas) {
                 // 캔버스를 이미지로 변환
                 var imgData = canvas.toDataURL('image/png');
 
@@ -413,7 +418,7 @@
                 // 한 페이지 이상일 경우 루프 돌면서 출력
                 while (heightLeft >= 20) {			// 35
                     position = heightLeft - imgHeight;
-                    position = position - 20 ;		// -25
+                    position = position - 20;		// -25
 
                     doc.addPage();
                     doc.addImage(imgData, 'PNG', margin, position, imgWidth, imgHeight);
