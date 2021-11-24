@@ -1,171 +1,169 @@
 .iiac {
-    color: rgb(0, 255, 255);
-    font-weight: bold;
-    text-decoration: underline;
-    font-style: italic;
-    font-size: 20.5px;
-  }
-
-.skku{
-    color: green;
-    font-weight: bold;
-    text-decoration: underline;
-    font-style: italic;
-    font-size: 20.5px;
+  color: rgb(0, 255, 255);
+  font-weight: bold;
+  text-decoration: underline;
+  font-style: italic;
+  font-size: 20.5px;
 }
-  
-  p {
-    margin-bottom: 40px;
-  }
-  
-  body {
-    background: lightgray;
-    font-family: "Times New Roman";
-  }
-  
-  #wrapper {
-    width: 720px;
-    background: white;
-    margin: auto;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid lightgray;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
-  }
-  #wrapper2 {
-    width: 80%;
-    height: auto;
-    background: white;
-    margin: auto;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid lightgray;
-    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
-  }
-  
-  
-  img {
-    border-radius: 12px;
-  }
-  
-  h2 {
-    border-left: 3px solid rgb(0, 181, 253);
-    padding-left: 5px;
-  }
-  
-  a {
-    color: steelblue;
-  }
-  
-  a:visited {
-    color: darkblue;
-  }
 
-  table {
-    width: 100%;
-    border-top: 1px solid #444444;
-    border-collapse: collapse;
-  }
+.skku {
+  color: green;
+  font-weight: bold;
+  text-decoration: underline;
+  font-style: italic;
+  font-size: 20.5px;
+}
 
-  th, td {
-    border-bottom: 1px solid #444444;
-    padding: 10px;
-    text-align: center;
-    font-size: 18px;
-    word-break:break-all;
-    white-space:pre-wrap;
-  }
+p {
+  margin-bottom: 40px;
+}
 
-  thead tr {
-    background-color: #0d47a1;
-    color: #ffffff;
-  }
-  tbody tr:nth-child(2n) {
-    background-color: #bbdefb;
-  }
-  tbody tr:nth-child(2n+1) {
-    background-color: #e3f2fd;
-  }
+body {
+  background: lightgray;
+  font-family: "Times New Roman";
+}
 
-  .rounded {
-    width: 10%;
-    background-color: lightgray;
-    border: 2px solid black;
-    padding: 0.5rem;
-    line-height: 1rem;
-    border-radius: 0.5rem;
-  }
+#wrapper {
+  width: 720px;
+  background: white;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+}
+#wrapper2 {
+  width: 80%;
+  height: auto;
+  background: white;
+  margin: auto;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+}
 
-  .rounded2 {
-    width: 10%;
-    background-color: lightgray;
-    border: 2px solid black;
-    padding: 0.5rem;
-    line-height: 1rem;
-    border-radius: 0.25rem;
-  }
+img {
+  border-radius: 12px;
+}
 
-  div.left {
-    width: 45%;
-    float: left;
-    box-sizing: border-box;
-  }
+h2 {
+  border-left: 3px solid rgb(0, 181, 253);
+  padding-left: 5px;
+}
 
-  div.right {
-    width: 45%;
-    float: right;
-    box-sizing: border-box;
-  }
-  
-  .timer-box {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    margin-top: 100px;
-  }
-  
-  .timer {
-    font-size: 60px;
-    margin-bottom: 30px;
-    transition: all 1s;
-    position: fixed;
-    top: 0;
-  }
-  .timer-form__Btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    text-align: left;
-    padding-bottom: 25px;
-  }
-  .timerBtn {
-    height: 30px;
-    width: 100px;
-    border-radius: 25px;
-    margin-left: 10px;
-    display: flex;
-    justify-content: left;
-    align-items: left;
-  }
-  
-  .timerBtn i {
-    font-size: 22px;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-  }
-  .timerBtn i:active,
-  .timerBtn i:hover {
-    font-size: 30px;
-  }
-  
-  .start {
-    margin: 50px;
-    bottom: 30px;
-    font-size: 100px;
-    margin: 0px;
-    padding: 0px;
-  }
-  
-  .start + div > .timerBtn:nth-child(1) {
-    display: none;
-  }
+a {
+  color: steelblue;
+}
+
+a:visited {
+  color: darkblue;
+}
+
+table {
+  width: 100%;
+  border-top: 1px solid #444444;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  word-break: break-all;
+  white-space: pre-wrap;
+}
+
+thead tr {
+  background-color: #0d47a1;
+  color: #ffffff;
+}
+tbody tr:nth-child(2n) {
+  background-color: #bbdefb;
+}
+tbody tr:nth-child(2n + 1) {
+  background-color: #e3f2fd;
+}
+
+.rounded {
+  width: 10%;
+  background-color: lightgray;
+  border: 2px solid black;
+  padding: 0.5rem;
+  line-height: 1rem;
+  border-radius: 0.5rem;
+}
+
+.rounded2 {
+  width: 10%;
+  background-color: lightgray;
+  border: 2px solid black;
+  padding: 0.5rem;
+  line-height: 1rem;
+  border-radius: 0.25rem;
+}
+
+div.left {
+  width: 45%;
+  float: left;
+  box-sizing: border-box;
+}
+
+div.right {
+  width: 45%;
+  float: right;
+  box-sizing: border-box;
+}
+
+.timer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-top: 100px;
+}
+
+.timer {
+  font-size: 60px;
+  margin-bottom: 30px;
+  transition: all 1s;
+}
+.timer-form__Btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  text-align: left;
+  padding-bottom: 25px;
+}
+.timerBtn {
+  height: 30px;
+  width: 100px;
+  border-radius: 25px;
+  margin-left: 10px;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+.timerBtn i {
+  font-size: 22px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.timerBtn i:active,
+.timerBtn i:hover {
+  font-size: 30px;
+}
+
+.start {
+  margin: 50px;
+  bottom: 30px;
+  font-size: 100px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.start + div > .timerBtn:nth-child(1) {
+  display: none;
+}
