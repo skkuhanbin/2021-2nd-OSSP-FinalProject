@@ -121,7 +121,7 @@ div.right {
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 .timer {
