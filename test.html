@@ -83,8 +83,11 @@
                 pro2[i].style.backgroundColor = "#db0d36";
             }
         }
-        totaltime = fail * 15 + TIME -1;
+        
         stopButton();
+        if(TIME!==0)
+            TIME--; //decrement last TIME++ by updateTIMER
+        totaltime = fail * 15 + TIME;
         let min = Math.floor(totaltime / 60);
         let sec = totaltime % 60;
         let realmin = Math.floor(TIME / 60);
@@ -193,7 +196,7 @@
         </div>
         <br>
         <div class="container">
-            START를 누르면 시간 측정이 시작됩니다.
+            START를 누르면 3초의 준비시간 이후 시간 측정이 시작됩니다.
         </div>
         <br><br>
         <div class="container3">
