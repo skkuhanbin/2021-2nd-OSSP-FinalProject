@@ -115,7 +115,7 @@
         document.getElementById("time").innerHTML = "걸린 시간: " + min + "분 " + sec + "초";
         document.getElementById("explain").innerHTML = "(실제 시간 " + realmin + "분 " + realsec + "초" + " +" + "틀린 문제 " + fail + "개 * 15초)";
     }
-    let k=0;
+    
     function makeExp() // 랜덤으로 문제가 나오게 하는 함수
     {
         let questionArray1 = document.getElementsByClassName("question1");
@@ -169,6 +169,12 @@
         document.getElementById("rate").innerHTML = " "
         document.getElementById("time").innerHTML = " ";
         document.getElementById("explain").innerHTML = " ";
+        for (i = 0; i < 8; i++){
+            document.getElementsByClassName("answer")[i].value = " ";
+        }
+        for (i = 0; i < 10; i++){
+            document.getElementsByClassName("answer2")[i].value = " ";
+        }
         stopButton();
         timer.innerText = `00:00`;
         TIME = 0;
