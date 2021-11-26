@@ -83,9 +83,8 @@
                 pro2[i].style.backgroundColor = "#db0d36";
             }
         }
-        
-        stopButton();
-        if(TIME!==0)
+        pauseButton();
+        if (TIME !== 0)
             TIME--; //decrement last TIME++ by updateTIMER
         totaltime = fail * 15 + TIME;
         let min = Math.floor(totaltime / 60);
@@ -114,8 +113,9 @@
         }
         document.getElementById("time").innerHTML = "걸린 시간: " + min + "분 " + sec + "초";
         document.getElementById("explain").innerHTML = "(실제 시간 " + realmin + "분 " + realsec + "초" + " +" + "틀린 문제 " + fail + "개 * 15초)";
+
     }
-    let k=0;
+    let k = 0;
     function makeExp() // 랜덤으로 문제가 나오게 하는 함수
     {
         let questionArray1 = document.getElementsByClassName("question1");
@@ -126,21 +126,21 @@
         let answerArray2 = document.getElementsByClassName("answer2");
         let pro1 = document.getElementsByClassName("rounded");
         let pro2 = document.getElementsByClassName("rounded2");
-        
-        
+
+
         for (i = 0; i < questionArray1.length; i++) {
             let num1 = Math.floor(Math.random() * 10000) + 1000;
             let num2 = Math.round(Math.random() * 1000) / 10 + 10;
             let num3 = Math.floor(Math.random() * 10000) + 1000;
             let num4 = Math.round(Math.random() * 1000) / 10 + 10;
-            let operator = "*"; // 변수 operator 초기화
+            let operator = " * "; // 변수 operator 초기화
 
             questionArray1[i].innerHTML = num1 + operator + num2;
             questionArray1[i].style.textDecoration = "none";
             questionArray2[i].innerHTML = num3 + operator + num4;
             questionArray2[i].style.textDecoration = "none";
             pro1[i].style.backgroundColor = "lightgray";
-            if(Math.abs(eval(questionArray1[i].innerHTML) - eval(questionArray2[i].innerHTML))>200){
+            if (Math.abs(eval(questionArray1[i].innerHTML) - eval(questionArray2[i].innerHTML)) > 200) {
                 i--;
             }
         }
@@ -158,18 +158,18 @@
             questionArray4[i].style.textDecoration = "none";
             pro2[i].style.backgroundColor = "lightgray";
 
-            let result1 = eval(questionArray3[i].innerHTML.split("\n-----\n")[0]/questionArray3[i].innerHTML.split("\n-----\n")[1]);
-            let result2 = eval(questionArray4[i].innerHTML.split("\n-----\n")[0]/questionArray4[i].innerHTML.split("\n-----\n")[1]);
-            
-            if(Math.abs(result1 - result2)>0.01){
+            let result1 = eval(questionArray3[i].innerHTML.split("\n-----\n")[0] / questionArray3[i].innerHTML.split("\n-----\n")[1]);
+            let result2 = eval(questionArray4[i].innerHTML.split("\n-----\n")[0] / questionArray4[i].innerHTML.split("\n-----\n")[1]);
+
+            if (Math.abs(result1 - result2) > 0.01) {
                 i--;
             }
         }
-        
+
         document.getElementById("rate").innerHTML = " "
         document.getElementById("time").innerHTML = " ";
         document.getElementById("explain").innerHTML = " ";
-        stopButton();
+        pauseButton();
         timer.innerText = `00:00`;
         TIME = 0;
     }
@@ -177,19 +177,17 @@
 
 <body onload="makeExp()">
     <div id="wrapper2">
-        <div class="container">
-            <div class="timer-box">
-                <div class="timer js-timer">00:00</div>
-                <div class="timer-form__Btn">
-                    <div class="timerBtn js-timer__startBtn">
-                        <i class="fas fa-play"></i>
-                    </div>
-                    <div class="timerBtn js-timer__stopBtn">
-                        <i class="fas fa-pause"></i>
-                    </div>
-                    <div class="timerBtn js-timer__resetBtn">
-                        <i class="fas fa-stop"></i>
-                    </div>
+        <div class="container border border-dark">
+            <div class="timerDisplay text-center">00:00</div>
+            <div class="row">
+                <div class="col playBtn border border-dark">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div class="col pauseBtn border border-dark">
+                    <i class="fas fa-pause"></i>
+                </div>
+                <div class="col stopBtn border border-dark">
+                    <i class="fas fa-stop"></i>
                 </div>
             </div>
             <script src="timer.js"></script>
@@ -200,94 +198,93 @@
         </div>
         <br><br>
         <div class="container3">
-            <input type="button" onclick="clac()" value="채점하기"></input>
-            <input type="button" onclick="makeExp()" value="문제 재생성"></input>
-            <input type="button" onclick="savePDF()" value="PDF로 저장"></input>
-            <a href="index.html" class="btn btn-primary">처음으로</a>
-            <!-- 버튼 위치 나중에 수정해야지 -->
+            <button type="button" class="btn btn-primary" onclick="clac()">채점하기</button>
+            <button type="button" class="btn btn-primary" onclick="makeExp()">문제 재생성</button>
+            <button type="button" class="btn btn-primary" onclick="savePDF()">PDF로 저장</button>
+            <button type="button" class="btn btn-primary" onclick=" location.href='index.html'">처음으로</button>
         </div>
-        
+
         <div id="PDFsize">
             <br><br><br><br><br>
             <div class="left">
-                <div class="rounded">1</div><br>
+                <div class="rounded text-center">1</div><br>
                 <table>
                     <tr>
                         <td class="question1"></td>
-                        <td><input class="answer" type="text" size="1"></td>
+                        <td><input class="answer text-center" type="text" size="1"></td>
                         <td class="question2"></td>
                     </tr>
                 </table>
                 <br><br><br><br><br>
 
-                <div class="rounded">2</div><br>
+                <div class="rounded text-center">2</div><br>
                 <table>
                     <tr>
                         <td class="question1"></td>
-                        <td><input class="answer" type="text" size="1"></td>
+                        <td><input class="answer text-center" type="text" size="1"></td>
                         <td class="question2"></td>
                     </tr>
                 </table>
                 <br><br><br><br><br>
 
-                <div class="rounded">3</div><br>
+                <div class="rounded text-center">3</div><br>
                 <table>
                     <tr>
                         <td class="question1"></td>
-                        <td><input class="answer" type="text" size="1"></td>
+                        <td><input class="answer text-center" type="text" size="1"></td>
                         <td class="question2"></td>
                     </tr>
                 </table>
                 <br><br><br><br><br>
 
-                <div class="rounded">4</div><br>
+                <div class="rounded text-center">4</div><br>
                 <table>
                     <tr>
                         <td class="question1"></td>
-                        <td><input class="answer" type="text" size="1"></td>
+                        <td><input class="answer text-center" type="text" size="1"></td>
                         <td class="question2"></td>
                     </tr>
                 </table>
                 <br><br><br><br><br>
 
-                <div class="rounded">5</div><br>
+                <div class="rounded text-center">5</div><br>
                 <table>
                     <tr>
                         <td class="question1"></td>
-                        <td><input class="answer" type="text" size="1"></td>
-                        <td class="question2"></td>
-                    </tr>
-                </table>
-                <br><br><br><br><br>
-
-
-                <div class="rounded">6</div><br>
-                <table>
-                    <tr>
-                        <td class="question1"></td>
-                        <td><input class="answer" type="text" size="1"></td>
+                        <td><input class="answer text-center" type="text" size="1"></td>
                         <td class="question2"></td>
                     </tr>
                 </table>
                 <br><br><br><br><br>
 
 
-                <div class="rounded">7</div><br>
+                <div class="rounded text-center">6</div><br>
                 <table>
                     <tr>
                         <td class="question1"></td>
-                        <td><input class="answer" type="text" size="1"></td>
+                        <td><input class="answer text-center" type="text" size="1"></td>
                         <td class="question2"></td>
                     </tr>
                 </table>
                 <br><br><br><br><br>
 
 
-                <div class="rounded">8</div><br>
+                <div class="rounded text-center">7</div><br>
                 <table>
                     <tr>
                         <td class="question1"></td>
-                        <td><input class="answer" type="text" size="1"></td>
+                        <td><input class="answer text-center" type="text" size="1"></td>
+                        <td class="question2"></td>
+                    </tr>
+                </table>
+                <br><br><br><br><br>
+
+
+                <div class="rounded text-center">8</div><br>
+                <table>
+                    <tr>
+                        <td class="question1"></td>
+                        <td><input class="answer text-center" type="text" size="1"></td>
                         <td class="question2"></td>
                     </tr>
                 </table>
@@ -296,107 +293,107 @@
 
 
             <div class="right">
-                <div class="rounded2">9</div><br>
+                <div class="rounded2 text-center">9</div><br>
                 <table>
                     <tr>
                         <td class="question3"></td>
-                        <td><input class="answer2" type="text" size="1"></td>
+                        <td><input class="answer2 text-center" type="text" size="1"></td>
                         <td class="question4"></td>
                     </tr>
                 </table>
                 <br>
 
-                <div class="rounded2">10</div><br>
+                <div class="rounded2 text-center">10</div><br>
                 <table>
                     <tr>
                         <td class="question3"></td>
-                        <td><input class="answer2" type="text" size="1"></td>
+                        <td><input class="answer2 text-center" type="text" size="1"></td>
                         <td class="question4"></td>
                     </tr>
                 </table>
                 <br>
 
-                <div class="rounded2">11</div><br>
+                <div class="rounded2 text-center">11</div><br>
                 <table>
                     <tr>
                         <td class="question3"></td>
-                        <td><input class="answer2" type="text" size="1"></td>
+                        <td><input class="answer2 text-center" type="text" size="1"></td>
                         <td class="question4"></td>
                     </tr>
                 </table>
                 <br>
 
-                <div class="rounded2">12</div><br>
+                <div class="rounded2 text-center">12</div><br>
                 <table>
                     <tr>
                         <td class="question3"></td>
-                        <td><input class="answer2" type="text" size="1"></td>
+                        <td><input class="answer2 text-center" type="text" size="1"></td>
                         <td class="question4"></td>
                     </tr>
                 </table>
                 <br>
 
-                <div class="rounded2">13</div><br>
+                <div class="rounded2 text-center">13</div><br>
                 <table>
                     <tr>
                         <td class="question3"></td>
-                        <td><input class="answer2" type="text" size="1"></td>
+                        <td><input class="answer2 text-center" type="text" size="1"></td>
                         <td class="question4"></td>
                     </tr>
                 </table>
                 <br>
 
-                <div class="rounded2">14</div><br>
+                <div class="rounded2 text-center">14</div><br>
                 <table>
                     <tr>
                         <td class="question3"></td>
-                        <td><input class="answer2" type="text" size="1"></td>
+                        <td><input class="answer2 text-center" type="text" size="1"></td>
                         <td class="question4"></td>
                     </tr>
                 </table>
                 <br>
 
-                <div class="rounded2">15</div><br>
+                <div class="rounded2 text-center">15</div><br>
                 <table>
                     <tr>
                         <td class="question3"></td>
-                        <td><input class="answer2" type="text" size="1"></td>
+                        <td><input class="answer2 text-center" type="text" size="1"></td>
                         <td class="question4"></td>
                     </tr>
                 </table>
                 <br>
 
-                <div class="rounded2">16</div><br>
+                <div class="rounded2 text-center">16</div><br>
                 <table>
                     <tr>
                         <td class="question3"></td>
-                        <td><input class="answer2" type="text" size="1"></td>
+                        <td><input class="answer2 text-center" type="text" size="1"></td>
                         <td class="question4"></td>
                     </tr>
                 </table>
                 <br>
 
-                <div class="rounded2">17</div><br>
+                <div class="rounded2 text-center">17</div><br>
                 <table>
                     <tr>
                         <td class="question3"></td>
-                        <td><input class="answer2" type="text" size="1"></td>
+                        <td><input class="answer2 text-center" type="text" size="1"></td>
                         <td class="question4"></td>
                     </tr>
                 </table>
                 <br>
 
-                <div class="rounded2">18</div><br>
+                <div class="rounded2 text-center">18</div><br>
                 <table>
                     <tr>
                         <td class="question3"></td>
-                        <td><input class="answer2" type="text" size="1"></td>
+                        <td><input class="answer2 text-center" type="text" size="1"></td>
                         <td class="question4"></td>
                     </tr>
                 </table>
                 <br>
             </div>
-        
+
             <br>
             <div class="container">
                 <h1>
@@ -409,8 +406,8 @@
                     <span id="explain"></span>
                 </h6>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>            
-        </div>     
+            </div>
+        </div>
     </div>
 
     <script src="html2canvas.js"></script>
@@ -425,7 +422,7 @@
                 var pageHeight = imgWidth * 1.414;  // A4 세로 길이
                 var imgHeight = canvas.height * imgWidth / canvas.width;
                 var heightLeft = imgHeight;
-                var margin = 10; 
+                var margin = 10;
                 var doc = new jsPDF('p', 'mm');
                 var position = 0;
 

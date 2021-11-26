@@ -1,54 +1,62 @@
-const timer = document.querySelector('.js-timer'),
-  stopBtn = document.querySelector('.js-timer__stopBtn'),
-  startBtn = document.querySelector('.js-timer__startBtn'),
-  resetBtn = document.querySelector('.js-timer__resetBtn');
+const timer = document.querySelector('.timerDisplay'),
+  playTimer = document.querySelector('.playBtn'),
+  pauseTimer = document.querySelector('.pauseBtn'),
+  stopTimer = document.querySelector('.stopBtn');
 
 let counterTIME = 3;
 let TIME = 0;
-let cron;
+let interval;
+let playflag =0;//0-enable playBtn, 1 - disable playBtn
 
-function startButton() {
+function initTimer() {
+  playTimer.addEventListener('click', playButton);
+  pauseTimer.addEventListener('click', pauseButton);
+  stopTimer.addEventListener('click', stopButton);
+}
+initTimer();
+
+function playButton() {
+  if(playflag==0)
+  {
   updateTimer();
-  stopButton();
-  cron = setInterval(updateTimer, 1000);
+  pauseButton();
+  interval = setInterval(updateTimer, 1000);
   timer.classList.add('start');
+  playflag=1;
+  }
+  else
+  {}
+}
+
+function pauseButton() {
+  clearInterval(interval);
+  timer.classList.remove('start');
+  playflag = 0;
 }
 
 function stopButton() {
-  clearInterval(cron);
+  timer.innerText = "00:00";
+  pauseButton();
   timer.classList.remove('start');
-}
-
-function resetButton() {
-  timer.innerText = `00:00`;
-  stopButton();
-  timer.classList.remove('start');
+  playflag=0;
   counterTIME = 3;
-  return (TIME = 0);
+  TIME=0;
 }
 
 function updateTimer() {
   if(counterTIME>0)
   {
-    timer.innerText = `00:0${counterTIME} `;
+    timer.classList.add('text-danger'); // red
+    timer.innerText = "00:0"+counterTIME;
     counterTIME--;
   }
   else{
-  const checkMinutes = Math.floor(TIME / 60);
+    //countdown ends
+    timer.classList.remove('text-danger');
+  const minutes = Math.floor(TIME / 60);
   const seconds = TIME % 60;
-  const minutes = checkMinutes % 60;
 
-  timer.innerText = `${
-    minutes < 10 ? `0${minutes}` : minutes
-  }:${seconds < 10 ? `0${seconds}` : seconds} `;
-  TIME++;
-  console.log(TIME - 1);
+  timer.innerText = `${minutes < 10 ? "0"+minutes : minutes
+  }:${seconds < 10 ? "0"+seconds : seconds}`;
+  TIME++;}
 }
-}
-
-function init() {
-  startBtn.addEventListener('click', startButton);
-  stopBtn.addEventListener('click', stopButton);
-  resetBtn.addEventListener('click', resetButton);
-}
-init();

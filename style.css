@@ -117,53 +117,37 @@ div.right {
   box-sizing: border-box;
 }
 
-.timer-box {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  margin-top: 10px;
-}
-
-.timer {
+.timerDisplay {
   font-size: 60px;
-  margin-bottom: 30px;
+  margin: auto;
   transition: all 1s;
 }
-.timer-form__Btn {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  text-align: left;
-  padding-bottom: 25px;
+.row{
+  width:auto;
+  height : 50px;
+  align-items : center;
+  display:flex;
+  justify-content: space-evenly;
 }
-.timerBtn {
-  height: 30px;
-  width: 100px;
-  border-radius: 25px;
-  margin-left: 10px;
-  display: flex;
-  justify-content: left;
-  align-items: left;
+.col {
+  height: 40px;
+  border-radius: 20px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
-
-.timerBtn i {
-  font-size: 22px;
-  transition: all 0.2s ease-in-out;
+.col i {
+  font-size: 20px;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
-.timerBtn i:active,
-.timerBtn i:hover {
+.col i:hover {
   font-size: 30px;
+  color:skyblue;
 }
-
+.col i:active{
+  color:red;
+}
 .start {
-  margin: 50px;
-  bottom: 30px;
   font-size: 100px;
-  margin: 0px;
-  padding: 0px;
-}
-
-.start + div > .timerBtn:nth-child(1) {
-  display: none;
 }
