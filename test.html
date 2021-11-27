@@ -19,10 +19,12 @@
             width: 45%;
             margin-left: 1%;
         }
+
         .container2 {
             width: 50%;
             margin-left: 1%;
         }
+
         .container3 {
             width: auto;
             text-align: center;
@@ -118,7 +120,7 @@
         document.getElementById("explain").innerHTML = "(실제 시간 " + realmin + "분 " + realsec + "초" + " +" + "틀린 문제 " + fail + "개 * 15초)";
 
     }
-    
+
     function makeExp() // 랜덤으로 문제가 나오게 하는 함수
     {
         let questionArray1 = document.getElementsByClassName("question1");
@@ -172,10 +174,10 @@
         document.getElementById("rate").innerHTML = " "
         document.getElementById("time").innerHTML = " ";
         document.getElementById("explain").innerHTML = " ";
-        for (i = 0; i < 8; i++){
+        for (i = 0; i < 8; i++) {
             document.getElementsByClassName("answer")[i].value = " ";
         }
-        for (i = 0; i < 10; i++){
+        for (i = 0; i < 10; i++) {
             document.getElementsByClassName("answer2")[i].value = " ";
         }
         pauseButton();
@@ -189,13 +191,13 @@
         <div class="container border border-dark">
             <div class="timerDisplay text-center">00:00</div>
             <div class="row">
-                <div class="col playBtn border border-dark">
+                <div class="col timerComp playBtn border border-dark">
                     <i class="fas fa-play"></i>
                 </div>
-                <div class="col pauseBtn border border-dark">
+                <div class="col timerComp pauseBtn border border-dark">
                     <i class="fas fa-pause"></i>
                 </div>
-                <div class="col stopBtn border border-dark">
+                <div class="col timerComp stopBtn border border-dark">
                     <i class="fas fa-stop"></i>
                 </div>
             </div>
@@ -416,6 +418,42 @@
                 </h6>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
+                <div class="container">
+                    <h2>채점 기준</h2>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>시간</th>
+                                <th>평가</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>~ 2'00"</td>
+                            <td>Superior</td>
+                        </tr>
+                        <tr>
+                            <td>2'00" ~ 2'30"</td>
+                            <td>Excellent</td>
+                        </tr>
+                        <tr>
+                            <td>2'30" ~ 3'00"</td>
+                            <td>Good</td>
+                        </tr>
+                        <tr>
+                            <td>3'00" ~ 3'30"</td>
+                            <td>Average</td>
+                        </tr>
+                        <tr>
+                            <td>3'30" ~ 4'00"</td>
+                            <td>Acceptable</td>
+                        </tr>
+                        <tr>
+                            <td>4'00" ~ </td>
+                            <td>Need Work</td>
+                        </tr>
+                    </table>
+                </div> 
         </div>
     </div>
 

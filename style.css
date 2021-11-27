@@ -121,23 +121,23 @@ div.right {
   display:flex;
   justify-content: space-evenly;
 }
-.col {
+.timerComp {
   height: 40px;
   border-radius: 20px;
   display:flex;
   justify-content: center;
   align-items: center;
 }
-.col i {
+.timerComp i {
   font-size: 20px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
-.col i:hover {
+.timerComp i:hover {
   font-size: 30px;
   color:skyblue;
 }
-.col i:active{
+.timerComp i:active{
   color:red;
 }
 .start {
