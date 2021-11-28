@@ -40,7 +40,7 @@ Users can practice managing time spent while solving problems, and check skill l
 
 ## Demo Video
 --------------------------------------
-<iframe width="640" height="360" src="https://https://youtu.be/dN8vpEpToKM" frameborder="0" gesture="media" allowfullscreen=""></iframe>
+https://user-images.githubusercontent.com/92297642/143735222-87597279-a101-4960-ac7c-fcbda91b44db.mp4
 
 ## Members
 --------------------------------------
