@@ -27,6 +27,18 @@ Users can practice managing time spent while solving problems, and check skill l
 7. Users can go back to first page by clicking 'Back to first page' button, or solve other problems by clicking 'Recreate Problems' button.
 ## Releases
 --------------------------------------
+v0.1.0
+- Create button of making PDF file
+- Modifying padding
+
+v1.0.0
+- Fix minor bug
+- Design changes
+- Adjusting the level of difficulty
+
+v1.0.1
+- Update fonts
+
 ## ScreenShots
 --------------------------------------
 - main menu
