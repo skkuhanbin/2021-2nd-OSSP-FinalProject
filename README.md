@@ -34,11 +34,10 @@ v0.1.0
 v1.0.0
 - Fix minor bug
 - Design changes
-- Adjusting the level of difficulty
+- Adjust the level of difficulty
 
 v1.0.1
 - Update fonts
-
 ## ScreenShots
 --------------------------------------
 - main menu
