@@ -21,7 +21,7 @@ Users can practice managing time spent while solving problems, and check skill l
 1. First page shows brief how to use guide and grading criteria. User goes to problem solving page by clicking 'Create new problems' button.
 2. Problems are auto-generated. If users want to change problems, users click 'Recreate problems' button.
 3. Users can save current problem solving page as PDF and prints it out by 'Save as PDF' button.
-4. Timer starts by clicking start icon(▷) of timer. After 3 seconds of countdown, timer starts. Users can stop and reset timer by stop icon(⏹), or pause timer by pause icon.(⏸︎)
+4. Timer starts by clicking start icon(▶) of timer. After 3 seconds of countdown, timer starts. Users can stop and reset timer by stop icon(⏹), or pause timer by pause icon.(⏸︎)
 5. User inputs answers in white box between numbers by keyboard. After finishing answer inputs, pressing 'Grading' button will stops timer and notifiy users correct/incorrect answers.
 6. Users can check final results based on incorrect problems and spent time at the bottom of pages.
 7. Users can go back to first page by clicking 'Back to first page' button, or solve other problems by clicking 'Recreate Problems' button.
