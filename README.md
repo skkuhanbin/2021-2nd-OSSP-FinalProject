@@ -40,13 +40,13 @@ v1.0.1
 - Update fonts
 ## ScreenShots
 --------------------------------------
-- main menu
+- Main page
 <img width="80%" src="https://user-images.githubusercontent.com/92297642/143734625-c06a726f-0145-4b81-a6e1-ea3305a2bc11.png"/>
 
-- testing page
+- Test page
 <img width="80%" src="https://user-images.githubusercontent.com/92297642/143734483-ab3449b3-1f35-4dee-ba57-7e298204e970.png"/>
 
-- result
+- Result
 <img width="80%" src="https://user-images.githubusercontent.com/92297642/143734610-b83e52c0-142f-406a-acdb-9781d2fc1704.png"/>
 
 ## Demo Video
